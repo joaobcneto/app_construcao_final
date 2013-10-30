@@ -1,9 +1,9 @@
-function insertItem(desc,valor,imagem){
+function insertItem(desc,valor){
   var objItem = new Item();
  
   objItem.setDescricao(desc);
   objItem.setValor(valor);
-  objItem.setImg(imagem);
+  objItem.setImagem($img);
   
   onInsert(objItem);
 }
