@@ -3,7 +3,7 @@ function insertItem(desc,valor){
  
   objItem.setDescricao(desc);
   objItem.setValor(valor);
-  objItem.setImagem($img);
+  objItem.setImagem(imagem);
   
   onInsert(objItem);
 }
