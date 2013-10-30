@@ -24,27 +24,7 @@
    
    <script type="text/javascript" charset="utf-8">
 
-    // Wait for device API libraries to load
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    // device APIs are available
-    function onDeviceReady() {
-        navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
-		navigator.accelerometer.watchAcceleration(onSuccess, onError);
-    }
-
-    // onSuccess: Get a snapshot of the current acceleration
-    function onSuccess(acceleration) {
-        alert('Acceleration X: ' + acceleration.x + '\n' +x
-              'Acceleration Y: ' + acceleration.y + '\n' +
-              'Acceleration Z: ' + acceleration.z + '\n' +
-              'Timestamp: '      + acceleration.timestamp + '\n');
-    }
-
-    // onError: Failed to get the acceleration
-    function onError() {
-        alert('onError!');
-    }
+    
 
 
     </script>
@@ -57,9 +37,6 @@
       }
       ul {
          list-style: none;
-      }
-      #status {
-         display: none;
       }
       #total {
          font-size: 37px;
@@ -86,6 +63,8 @@
             <input id="btnInserir" type="button" onclick="insertItem($('#descricao').val(),$('#valor').val());" value="salvar">
             <input type="button" onclick="updateItem($('#id').val(),$('#descricao').val(),$('#valor').val());$('#btnInserir').removeAttr('disabled');" value="editar">
 		    <input type="button" onclick="delItem($('#id').val());$('#btnInserir').removeAttr('disabled');" value="apagar">
+			
+			<input type="button" onclick="mostrarImagem()" value="mostrar uma foto>
 		 </div>
 
       </form>

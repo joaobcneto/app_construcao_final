@@ -62,17 +62,17 @@ function onCreate(Item){
         updateStatus("Erro: 'descricao' e 'valor' são campos obrigatórios!");
     }
     else {
-        var query = "insert into obra (descricao, valor) VALUES (?, ?);";
+        var query = "insert into obra (descricao, valor, src) VALUES (?, ?, ?);";
         try {
             localDB.transaction(function(transaction){
-                transaction.executeSql(query, [descricao, valor], function(transaction, results){
+                transaction.executeSql(query, [descricao, valor, $img], function(transaction, results){
                     if (!results.rowsAffected) {
                         updateStatus("Erro: Inserção não realizada");
                     }
                     else {
                         updateForm("", "", "");
-                        updateStatus("Inserção realizada, linha id: " + results.insertId);
                         queryAndUpdateOverview();
+						console.log("Inserção realizada!");
                     }
                 }, errorHandler);
             });
