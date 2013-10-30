@@ -61,6 +61,7 @@ function onInsert(Item){
     var valor = Item.getValor();
 	var imagem = Item.getImagem();
 	
+	updateStatus("valor de $img em onInsert(Item): "+$img);
     if (descricao == "" || valor == "") {
         updateStatus("Erro: 'descricao' e 'valor' são campos obrigatórios!");
     }
