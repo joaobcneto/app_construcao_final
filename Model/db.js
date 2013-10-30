@@ -61,8 +61,6 @@ function onInsert(Item){
     var valor = Item.getValor();
 	var imagem = Item.getImagem();
 	
-	updateStatus("valor de $img em onInsert(Item): "+$img);
-	
     if (descricao == "" || valor == "") {
         updateStatus("Erro: 'descricao' e 'valor' são campos obrigatórios!");
     }
@@ -70,7 +68,7 @@ function onInsert(Item){
         var query = "insert into obra (descricao, valor, src) VALUES (?, ?, ?);";
         try {
             localDB.transaction(function(transaction){
-                transaction.executeSql(query, [descricao, valor, $img], function(transaction, results){
+                transaction.executeSql(query, [descricao, valor, imagem], function(transaction, results){
                     if (!results.rowsAffected) {
                         updateStatus("Erro: Inserção não realizada");
                     }
