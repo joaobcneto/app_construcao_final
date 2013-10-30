@@ -61,8 +61,6 @@ function onInsert(Item){
     var valor = Item.getValor();
 	var imagem = Item.getImagem();
 	
-	updateStatus("onInsert() "+imagem);
-	
     if (descricao == "" || valor == "") {
         updateStatus("Erro: 'descricao' e 'valor' são campos obrigatórios!");
     }
@@ -76,7 +74,7 @@ function onInsert(Item){
                     }
                     else {
                         updateForm("", "", "");
-                        updateStatus("Inserção realizada, linha id: " + results.insertId);
+                        updateStatus("Inserção realizada, linha id: " + results.insertId+imagem);
                         queryAndUpdateOverview();
                     }
                 }, errorHandler);
