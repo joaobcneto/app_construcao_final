@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta name="viewport" content="width=320, initial-scale=1.0">
+   <meta charset="UTF-8">
+   <title>Gerenciador financeiro para obras</title>
+   <script type="text/javascript" src="lib/jquery-1.10.2.min.js"></script>
+   <script type="text/javascript" src="lib/jquery.mobile-1.3.2.min.js"></script>
+   <script type="text/javascript" src="lib/script.js"></script>
+   <script type="text/javascript" src="lib/jquery.maskMoney.js"></script>
+   <link rel="stylesheet" href="lib/jquery.mobile-1.3.2.min.css" />
+   <script type="text/javascript" src="Model/item.js"></script>
+   <script type="text/javascript" src="DAO/dao.js"></script>
+   <script type="text/javascript" src="Model/db.js"></script>
+   <script type="text/javascript" src="Controller/controller.js"></script>
+   
+   <script type="text/javascript" src="lib/cordova-2.7.0.js"></script>
+   <script type="text/javascript">
+	$(document).ready(function(){
+		$("#valor").maskMoney({showSymbol:true, symbol:"R$ ", decimal:",", thousands:"."});
+	});
+
+   </script>
+   
+   <script type="text/javascript" charset="utf-8">
+
+    // Wait for device API libraries to load
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // device APIs are available
+    function onDeviceReady() {
+        navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
+		navigator.accelerometer.watchAcceleration(onSuccess, onError);
+    }
+
+    // onSuccess: Get a snapshot of the current acceleration
+    function onSuccess(acceleration) {
+        alert('Acceleration X: ' + acceleration.x + '\n' +x
+              'Acceleration Y: ' + acceleration.y + '\n' +
+              'Acceleration Z: ' + acceleration.z + '\n' +
+              'Timestamp: '      + acceleration.timestamp + '\n');
+    }
+
+    // onError: Failed to get the acceleration
+    function onError() {
+        alert('onError!');
+    }
+
+
+    </script>
+   
+   
+
+<style>
+      textarea {
+         resize: none;
+      }
+      ul {
+         list-style: none;
+      }
+      #status {
+         display: none;
+      }
+      #total {
+         font-size: 37px;
+      }
+   </style>
+
+</head>
+<body onload="teste()">
+
+<div data-role="page">
+   <div data-role="header">
+      <h1>Gerenciador financeiro para obras</h1>
+   </div>
+   <div data-role="content">
+      <form name="itemForm">
+		   <input type="hidden" name="id" id="id" size="2" disabled="true">
+         <label for="descricao">Descrição:</label>
+         <textarea cols="40" rows="8" name="descricao" id="descricao"></textarea>
+         <label for="valor">Valor:</label>
+         <input type="text" name="valor" id="valor" value="">
+		 <input type="button" value="fotografar" onclick="fotografar();">
+         		   <span id="total">TOTAL: 0,00</span>
+         <div data-role="controlgroup" data-type="horizontal">
+            <input id="btnInserir" type="button" onclick="insertItem($('#descricao').val(),$('#valor').val());" value="salvar">
+            <input type="button" onclick="updateItem($('#id').val(),$('#descricao').val(),$('#valor').val());$('#btnInserir').removeAttr('disabled');" value="editar">
+		    <input type="button" onclick="delItem($('#id').val());$('#btnInserir').removeAttr('disabled');" value="apagar">
+		 </div>
+
+      </form>
+      <div id="status">Tabela OK</div>
+
+      <div data-role="collapsible" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" data-content-theme="c">
+			<h3>detalhes</h3>
+			<ul id="itemData" style="cursor:pointer;">
+         </ul></p>
+		</div>
+      
+   </div>   
+</div>
+</body>
+</html>
