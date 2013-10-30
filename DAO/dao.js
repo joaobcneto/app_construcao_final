@@ -26,7 +26,7 @@ function initDB(){
 }
 
 function createTables(){
-    var query = 'CREATE TABLE IF NOT EXISTS obra(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, descricao VARCHAR NOT NULL, valor VARCHAR NOT NULL, src TEXT DEFAULT "null", latitude TEXT  DEFAULT "null", longitude TEXT  DEFAULT "null");';
+    var query = 'CREATE TABLE IF NOT EXISTS obra(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, descricao VARCHAR NOT NULL, valor VARCHAR NOT NULL, src TEXT DEFAULT "null");';
 	try {
         localDB.transaction(function(transaction){
             transaction.executeSql(query, [], nullDataHandler, errorHandler);

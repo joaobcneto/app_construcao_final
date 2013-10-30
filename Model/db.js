@@ -1,14 +1,14 @@
-// Query e visualização de Update
-
 function onUpdate(Item){
+
     var id = Item.getId();
     var descricao = Item.getDescricao();
     var valor = Item.getValor();
+	var imagem = Item.getImagem();
+	
     if (descricao == "" || valor == "") {
         updateStatus("'descrição' e 'valor' são campos obrigatórios!");
-    }
-    else {
-        var query = "update obra set descricao=?, valor=? where id=?;";
+    } else {
+        var query = "update obra set descricao=?, valor=?,  where id=?;";
         try {
             localDB.transaction(function(transaction){
                 transaction.executeSql(query, [descricao, valor, id], function(transaction, results){
@@ -55,9 +55,12 @@ function onDelete(Item){
     total();
 }
 
-function onCreate(Item){
+function onInsert(Item){
+
     var descricao = Item.getDescricao();
     var valor = Item.getValor();
+	var imagem = Item.getImagem();
+	
     if (descricao == "" || valor == "") {
         updateStatus("Erro: 'descricao' e 'valor' são campos obrigatórios!");
     }
@@ -71,8 +74,8 @@ function onCreate(Item){
                     }
                     else {
                         updateForm("", "", "");
+                        updateStatus("Inserção realizada, linha id: " + results.insertId + $img);
                         queryAndUpdateOverview();
-						console.log("Inserção realizada!");
                     }
                 }, errorHandler);
             });

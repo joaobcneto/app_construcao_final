@@ -1,10 +1,11 @@
-function insertItem(desc,valor){
+function insertItem(desc,valor,imagem){
   var objItem = new Item();
  
   objItem.setDescricao(desc);
   objItem.setValor(valor);
+  objItem.setImg(imagem);
   
-  onCreate(objItem);
+  onInsert(objItem);
 }
 
 function updateItem(id,desc,valor){
