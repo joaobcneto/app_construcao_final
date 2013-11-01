@@ -21,29 +21,29 @@
 	});
 	</script>
 	<script type="text/javascript">
-    // Wait for device API libraries to load
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-	function onSuccess(position) {
-	
-    var posicao ('Latitude: '          + position.coords.latitude          + '\n' +
-          'Longitude: '         + position.coords.longitude         + '\n' +
-          'Altitude: '          + position.coords.altitude          + '\n' +
-          'Accuracy: '          + position.coords.accuracy          + '\n' +
-          'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-          'Heading: '           + position.coords.heading           + '\n' +
-          'Speed: '             + position.coords.speed             + '\n' +
-          'Timestamp: '         + position.timestamp                + '\n');
-		document.getElementById('posicao').innerHTML = posicao;
-	};
-
-	function onError(error) {
-		alert('code: '    + error.code    + '\n' +
-			  'message: ' + error.message + '\n');
-	}
-
-    function onDeviceReady() {
+    function checkPosition() {
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+
+    // onSuccess Geolocation
+    //
+    function onSuccess(position) {
+        var element = document.getElementById('geolocation');
+        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+                            'Longitude: '          + position.coords.longitude             + '<br />' +
+                            'Altitude: '           + position.coords.altitude              + '<br />' +
+                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                            'Heading: '            + position.coords.heading               + '<br />' +
+                            'Speed: '              + position.coords.speed                 + '<br />' +
+                            'Timestamp: '          +                                   position.timestamp          + '<br />';
+    }
+
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+                'message: ' + error.message + '\n');
     }
 
 	</script>
@@ -60,7 +60,7 @@
    </style>
 
 </head>
-<body onload="teste(), onDeviceReady()">
+<body onload="teste(), checkPosition()">
 
 <div data-role="page">
    <div data-role="header">
@@ -84,7 +84,7 @@
       </form>
       <div id="status">Tabela OK</div>
 	  
-	  <div id="posicao">Tabela OK</div>
+	  <div id="geolocation">OK</div>
 
       <div data-role="collapsible" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" data-content-theme="c">
 			<h3>detalhes</h3>
