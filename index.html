@@ -25,7 +25,8 @@
     document.addEventListener("deviceready", onDeviceReady, false);
 
 	function onSuccess(position) {
-    updateStatus('Latitude: '          + position.coords.latitude          + '\n' +
+	
+    var posicao ('Latitude: '          + position.coords.latitude          + '\n' +
           'Longitude: '         + position.coords.longitude         + '\n' +
           'Altitude: '          + position.coords.altitude          + '\n' +
           'Accuracy: '          + position.coords.accuracy          + '\n' +
@@ -33,6 +34,7 @@
           'Heading: '           + position.coords.heading           + '\n' +
           'Speed: '             + position.coords.speed             + '\n' +
           'Timestamp: '         + position.timestamp                + '\n');
+		document.getElementById('posicao').innerHTML = posicao;
 	};
 
 	function onError(error) {
@@ -81,6 +83,8 @@
 
       </form>
       <div id="status">Tabela OK</div>
+	  
+	  <div id="posicao">Tabela OK</div>
 
       <div data-role="collapsible" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" data-content-theme="c">
 			<h3>detalhes</h3>
