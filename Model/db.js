@@ -168,8 +168,9 @@ function updateForm(id, descricao, valor, imagem){
     document.itemForm.id.value = id;
     document.itemForm.descricao.value = descricao;
     document.itemForm.valor.value = valor;
-	document.itemForm.imagem.src = imagem;
-	$('name=[imagem]').css('display','block');
+	
+	$('#imagem').css('display','block');
+	$('#imagem').attr('src', imagem);
 }
 
 function updateStatus(status){
