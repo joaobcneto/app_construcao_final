@@ -8,15 +8,15 @@ function onUpdate(Item){
     if (descricao == "" || valor == "") {
         updateStatus("'descrição' e 'valor' são campos obrigatórios!");
     } else {
-        var query = "update obra set descricao=?, valor=?,  where id=?;";
+        var query = "update obra set descricao=?, valor=?, src=?, where id=?;";
         try {
             localDB.transaction(function(transaction){
-                transaction.executeSql(query, [descricao, valor, id], function(transaction, results){
+                transaction.executeSql(query, [descricao, valor, imagem, id], function(transaction, results){
                     if (!results.rowsAffected) {
                         updateStatus("Erro: Update não realizado.");
                     }
                     else {
-                        updateForm("", "", "");
+                        updateForm("", "", "", "");
                         updateStatus("Update realizado:" + results.rowsAffected);
                         queryAndUpdateOverview();
                     }
@@ -98,7 +98,7 @@ function onSelect(htmlLIElement){
             
                 var row = results.rows.item(0);
                 
-                updateForm(row['id'], row['descricao'], row['valor']);
+                updateForm(row['id'], row['descricao'], row['valor'], row['src']);
                 
             }, function(transaction, error){
                 updateStatus("Erro: " + error.code + "<br>Mensagem: " + error.message);
@@ -150,7 +150,7 @@ function queryAndUpdateOverview(){
     }
 }
 
-// 3. Funções de tratamento e status.
+// 3. Funções de tratamento e status.document.itemForm.valor.value = valor;
 
 // Tratando erros
 
@@ -164,10 +164,12 @@ nullDataHandler = function(transaction, results){
 
 // Funções de update
 
-function updateForm(id, descricao, valor){
+function updateForm(id, descricao, valor, imagem){
     document.itemForm.id.value = id;
     document.itemForm.descricao.value = descricao;
     document.itemForm.valor.value = valor;
+	document.itemForm.imagem.src = imagem;
+	$('name=[imagem]').css('display','block');
 }
 
 function updateStatus(status){

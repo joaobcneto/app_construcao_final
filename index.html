@@ -30,13 +30,7 @@
     function onSuccess(position) {
         var element = document.getElementById('geolocation');
         element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
-                            'Longitude: '          + position.coords.longitude             + '<br />' +
-                            'Altitude: '           + position.coords.altitude              + '<br />' +
-                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
-                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
-                            'Heading: '            + position.coords.heading               + '<br />' +
-                            'Speed: '              + position.coords.speed                 + '<br />' +
-                            'Timestamp: '          +                                   position.timestamp          + '<br />';
+                            'Longitude: '          + position.coords.longitude             + '<br />' +'<br />';
     }
 
     // onError Callback receives a PositionError object
@@ -57,6 +51,10 @@
       #total {
          font-size: 37px;
       }
+	  img {
+		display: none;
+	  }
+	  
    </style>
 
 </head>
@@ -74,7 +72,9 @@
          <label for="valor">Valor:</label>
          <input type="text" name="valor" id="valor" value="">
 		 <input type="button" value="fotografar" onclick="fotografar();">
-         		   <span id="total">TOTAL: 0,00</span>
+		 <img name="imagem" src="" onclick="fotografar();">
+		 
+         <span id="total">TOTAL: 0,00</span>
          <div data-role="controlgroup" data-type="horizontal">
             <input id="btnInserir" type="button" onclick="insertItem($('#descricao').val(),$('#valor').val());" value="salvar">
             <input type="button" onclick="updateItem($('#id').val(),$('#descricao').val(),$('#valor').val());$('#btnInserir').removeAttr('disabled');" value="editar">
