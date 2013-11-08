@@ -100,7 +100,7 @@ function onSelect(htmlLIElement){
             
                 var row = results.rows.item(0);
                 
-                updateForm(row['id'], row['descricao'], row['valor']);
+                updateForm(row['id'], row['descricao'], row['valor'], row['src']);
                 
             }, function(transaction, error){
                 updateStatus("Erro: " + error.code + "<br>Mensagem: " + error.message);
