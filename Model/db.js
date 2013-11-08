@@ -170,7 +170,7 @@ function updateForm(id, descricao, valor, imagem){
     document.itemForm.valor.value = valor;
 	
 	$('#imagem').css('display','block');
-	$('#fotografar').css('display','none');
+	//$('#fotografar').css('display','none');
 	$('#imagem').attr('src', imagem);
 }
 
