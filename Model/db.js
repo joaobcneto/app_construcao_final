@@ -171,9 +171,10 @@ function updateForm(id, descricao, valor, imagem){
     document.itemForm.descricao.value = descricao;
     document.itemForm.valor.value = valor;
 //<<<<<<< HEAD
-	$('img[name=imagem]').css('display','block');
+	//$('img[name=imagem]').css('display','block');
 	//$('#fotografar').css('display','none');
-	$('img[name=imagem]').attr('src',imagem);
+	//$('img[name=imagem]').attr('src',imagem);
+	$('input[name=fotografar]').css('background-image',imagem);
 //=======
 //>>>>>>> parent of 28fe7cf... Teste update imagem
 }

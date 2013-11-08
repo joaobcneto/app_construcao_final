@@ -74,13 +74,13 @@
          <label for="valor">Valor:</label>
          <input type="text" name="valor" id="valor" value="">
 
-		 <input type="button" value="fotografar" onclick="fotografar();">
-		 <img name="imagem" src="" onclick="fotografar();">
+		 <input type="button" name="fotografar" value="fotografar" onclick="fotografar();">
+		 <!--img name="imagem" src="" onclick="fotografar();"-->
          <span id="total">TOTAL: 0,00</span>
 
          <div data-role="controlgroup" data-type="horizontal">
             <input id="btnInserir" type="button" onclick="insertItem($('#descricao').val(),$('#valor').val());" value="salvar">
-            <input type="button" onclick="updateItem($('#id').val(),$('#descricao').val(),$('#valor').val(), $('img[name=imagem]').attr('src'));$('#btnInserir').removeAttr('disabled');" value="editar">
+            <input type="button" onclick="updateItem($('#id').val(),$('#descricao').val(),$('#valor').val(),$('img[name=imagem]').attr('src'));$('#btnInserir').removeAttr('disabled');" value="editar">
 		    <input type="button" onclick="delItem($('#id').val());$('#btnInserir').removeAttr('disabled');" value="apagar">
 		 </div>
 
