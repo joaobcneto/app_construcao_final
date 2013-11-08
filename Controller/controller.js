@@ -8,11 +8,12 @@ function insertItem(desc,valor){
   onInsert(objItem);
 }
 
-function updateItem(id,desc,valor){
+function updateItem(id,desc,valor,src){
   var objItem = new Item();
   objItem.setId(id);
   objItem.setDescricao(desc);
   objItem.setValor(valor);
+  objItem.setImagem(src);
   
   onUpdate(objItem);
 }
