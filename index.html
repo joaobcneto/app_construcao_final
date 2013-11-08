@@ -80,7 +80,7 @@
 
          <div data-role="controlgroup" data-type="horizontal">
             <input id="btnInserir" type="button" onclick="insertItem($('#descricao').val(),$('#valor').val());" value="salvar">
-            <input type="button" onclick="updateItem($('#id').val(),$('#descricao').val(),$('#valor').val(), $('#imagem').attr('src'));$('#btnInserir').removeAttr('disabled');" value="editar">
+            <input type="button" onclick="updateItem($('#id').val(),$('#descricao').val(),$('#valor').val(), $('img[name=imagem]').attr('src'));$('#btnInserir').removeAttr('disabled');" value="editar">
 		    <input type="button" onclick="delItem($('#id').val());$('#btnInserir').removeAttr('disabled');" value="apagar">
 		 </div>
 
