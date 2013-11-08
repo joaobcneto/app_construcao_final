@@ -81,7 +81,7 @@ function onInsert(Item){
                     }
                     else {
                         updateForm("", "", "","");
-                        updateStatus("Inserção realizada, linha id: " + results.insertId+$imagem);
+                        updateStatus("Inserção realizada, linha id: " + results.insertId);
                         queryAndUpdateOverview();
                     }
                 }, errorHandler);
@@ -177,7 +177,6 @@ function updateForm(id, descricao, valor, imagem){
     document.itemForm.valor.value = valor;
 //<<<<<<< HEAD
 	$('img[name=imagem]').css('display','block');
-	//$('#fotografar').css('display','none');
 	$('img[name=imagem]').attr('src',imagem);
 	
 //=======
