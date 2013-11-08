@@ -5,8 +5,8 @@ function onUpdate(Item){
     var valor = Item.getValor();
 	var imagem = Item.getImagem();
 	
-    if (descricao == "" || valor == "") {
-        updateStatus("'descrição' e 'valor' são campos obrigatórios!");
+    if (descricao == "" || valor == "" || imagem == "") {
+        updateStatus("'descrição', 'valor' e 'imagem' são campos obrigatórios!");
     } else {
         //var query = "update obra set descricao=?, valor=?,  where id=?;";
 		var query = "update obra set descricao=?, valor=?, src=?, where id=?;";
