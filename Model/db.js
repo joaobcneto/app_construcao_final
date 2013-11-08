@@ -52,6 +52,10 @@ function onDelete(Item){
                     updateForm("", "", "", "");
                     updateStatus("Linhas deletadas:" + results.rowsAffected);
                     queryAndUpdateOverview();
+					
+					// faz sumir a imagem do formulário após o delete
+					$('img[name=imagem]').attr('src','');
+					$('img[name=imagem]').css('display','none');
                 }
             }, errorHandler);
         });
@@ -83,6 +87,10 @@ function onInsert(Item){
                         updateForm("", "", "","");
                         updateStatus("Inserção realizada, linha id: " + results.insertId);
                         queryAndUpdateOverview();
+						
+						// faz sumir a imagem do formulário após a inserção
+						$('img[name=imagem]').attr('src','');
+						$('img[name=imagem]').css('display','none');
                     }
                 }, errorHandler);
             });
@@ -175,12 +183,10 @@ function updateForm(id, descricao, valor, imagem){
     document.itemForm.id.value = id;
     document.itemForm.descricao.value = descricao;
     document.itemForm.valor.value = valor;
-//<<<<<<< HEAD
+
 	$('img[name=imagem]').css('display','block');
 	$('img[name=imagem]').attr('src',imagem);
 	
-//=======
-//>>>>>>> parent of 28fe7cf... Teste update imagem
 }
 
 function updateStatus(status){
