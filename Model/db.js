@@ -21,6 +21,11 @@ function onUpdate(Item){
                         updateForm("", "", "", "");
                         updateStatus("Update realizado:" + results.rowsAffected);
                         queryAndUpdateOverview();
+						
+						// faz sumir a imagem do formulário após o update
+						$('img[name=imagem]').attr('src','');
+						$('img[name=imagem]').css('display','none');
+						
                     }
                 }, errorHandler);
             });
