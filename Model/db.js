@@ -42,7 +42,7 @@ function onDelete(Item){
                     updateStatus("Erro: Delete não realizado.");
                 }
                 else {
-                    updateForm("", "", "");
+                    updateForm("", "", "", "");
                     updateStatus("Linhas deletadas:" + results.rowsAffected);
                     queryAndUpdateOverview();
                 }
@@ -73,7 +73,7 @@ function onInsert(Item){
                         updateStatus("Erro: Inserção não realizada");
                     }
                     else {
-                        updateForm("", "", "");
+                        updateForm("", "", "","");
                         updateStatus("Inserção realizada, linha id: " + results.insertId+$imagem);
                         queryAndUpdateOverview();
                     }
