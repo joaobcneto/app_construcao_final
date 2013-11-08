@@ -9,7 +9,7 @@ function onUpdate(Item){
         updateStatus("'descrição', 'valor' e 'imagem' são campos obrigatórios!");
     } else {
         //var query = "update obra set descricao=?, valor=?,  where id=?;";
-		var query = "update obra set descricao=?, valor=?, src=?, where id=?;";
+		var query = "update obra set descricao=?, valor=?, src=? where id=?;";
         try {
             localDB.transaction(function(transaction){
                 //transaction.executeSql(query, [descricao, valor, id], function(transaction, results){
