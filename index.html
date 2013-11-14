@@ -18,10 +18,31 @@
    <script type="text/javascript">
 	$(document).ready(function(){
 		$("#valor").maskMoney({showSymbol:true, symbol:"R$ ", decimal:",", thousands:"."});
-		var phoneName = device.name;
-		alert('Seu telefone é um:'+phoneName);
 	});
 	</script>
+	
+	<script type="text/javascript" charset="utf-8">
+
+    // Wait for Cordova to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Cordova is ready
+    //
+    function onDeviceReady() {
+        var element = document.getElementById('dispositivo');
+
+        element.innerHTML = 'Device Name: '     + device.name     + '<br />' + 
+                            'Device Cordova: '  + device.cordova + '<br />' + 
+                            'Device Platform: ' + device.platform + '<br />' + 
+                            'Device UUID: '     + device.uuid     + '<br />' + 
+                            'Device Model: '    + device.model     + '<br />' + 
+                            'Device Version: '  + device.version  + '<br />';
+    }
+
+    </script>
+	
+	
 	<script type="text/javascript">
     function checkPosition() {
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
@@ -95,6 +116,7 @@
       <div id="status">Tabela OK</div>
 	  
 	  <div id="geolocation"></div>
+		<div id="dispositivo"></div>
 
       <div data-role="collapsible" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" data-content-theme="c">
 			<h3>detalhes</h3>
