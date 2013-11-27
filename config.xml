@@ -1,12 +1,24 @@
 <?xml version   ="1.0" encoding="UTF-8" ?>
-<widget xmlns   = "http://www.w3.org/ns/widgets" xmlns:gap   = "http://phonegap.com/ns/1.0">
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "com.jmj.sample"
+    versioncode = "1"
+    version     = "3.1.1w">
 	
 	<gap:platform name="android" />
     
+	<plugin name="Geolocation" value="org.apache.cordova.GeoBroker" />
+	
+    <name>MeetLog</name>
+    
     <content src="index.html"/>
-    <icon src="icon.jpeg" width="128" height="128" />
+    <icon src="icon.png" width="128" height="128" />
     
     <description>
-        Gerenciador financeiro para obras
+        Registrador de eventos para reuniões.
     </description>
+    
+    <author href="http://software.intel.com/html5">
+        JMJ Corporation
+    </author>
 </widget>
